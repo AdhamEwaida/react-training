@@ -1,0 +1,52 @@
+.app-shell {
+  width: min(100% - 2rem, 72rem);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 5rem 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 28rem);
+  align-items: center;
+  gap: clamp(3rem, 8vw, 7rem);
+}
+
+.page-heading span {
+  color: #5eead4;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.page-heading h1 {
+  max-width: 12ch;
+  margin: 1rem 0 1.25rem;
+  color: #f8fafc;
+  font-size: clamp(2.7rem, 7vw, 5.5rem);
+  line-height: 0.96;
+  letter-spacing: -0.055em;
+}
+
+.page-heading p {
+  max-width: 34rem;
+  margin: 0;
+  color: #94a3b8;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+@media (max-width: 800px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    padding: 3rem 0;
+  }
+
+  .page-heading {
+    text-align: center;
+  }
+
+  .page-heading h1,
+  .page-heading p {
+    margin-inline: auto;
+  }
+}
