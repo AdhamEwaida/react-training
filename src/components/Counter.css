@@ -1,0 +1,46 @@
+.counter {
+  padding-bottom: 1.5rem;
+  text-align: center;
+}
+
+.counter .exercise-card__header {
+  text-align: left;
+}
+
+.counter__value {
+  display: block;
+  margin: 2.25rem 0;
+  font-size: clamp(4.5rem, 12vw, 7rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.08em;
+}
+
+.counter__actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.55rem;
+  padding: 0 1.5rem;
+}
+
+.counter__actions button {
+  min-height: 2.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.8rem;
+  color: #e2e8f0;
+  background: #172033;
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.counter__actions button:hover {
+  border-color: #5eead4;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 420px) {
+  .counter__actions {
+    grid-template-columns: 1fr;
+  }
+}

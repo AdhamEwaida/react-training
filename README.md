@@ -12,6 +12,14 @@ Practical React exercises built during the frontend stage of my training.
 - Passed profile data through props from the parent `App` component.
 - Added responsive styling for desktop and mobile screens.
 
+### Day 2 — Components, Props, and State
+
+- Built an interactive `Counter` with increment, decrement, and reset actions.
+- Built a controlled to-do form with add, delete, and completion toggling.
+- Composed `TodoList` from reusable `TodoItem` child components.
+- Practiced state updates, events, conditional rendering, and inline styles.
+- Added component tests with Vitest and React Testing Library.
+
 ## Run locally
 
 ```powershell
@@ -24,5 +32,6 @@ npm run dev
 ```powershell
 npm run format:check
 npm run lint
+npm test
 npm run build
 ```

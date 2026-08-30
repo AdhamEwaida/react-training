@@ -2,11 +2,12 @@
   width: min(100% - 2rem, 72rem);
   min-height: 100vh;
   margin: 0 auto;
-  padding: 5rem 0;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(18rem, 28rem);
-  align-items: center;
-  gap: clamp(3rem, 8vw, 7rem);
+  padding: 4rem 0;
+}
+
+.page-heading {
+  max-width: 48rem;
+  margin-bottom: 3rem;
 }
 
 .page-heading span {
@@ -27,26 +28,66 @@
 }
 
 .page-heading p {
-  max-width: 34rem;
+  max-width: 40rem;
   margin: 0;
   color: #94a3b8;
   font-size: 1.05rem;
   line-height: 1.75;
 }
 
-@media (max-width: 800px) {
+.exercise-grid {
+  display: grid;
+  grid-template-columns: minmax(17rem, 0.75fr) minmax(20rem, 1.25fr);
+  align-items: start;
+  gap: 1.5rem;
+}
+
+.exercise-card {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.5rem;
+  background: rgba(13, 20, 34, 0.82);
+  box-shadow: 0 1.5rem 4rem rgba(4, 8, 18, 0.35);
+  backdrop-filter: blur(1rem);
+}
+
+.exercise-card__header {
+  padding: 1.5rem 1.5rem 0;
+}
+
+.exercise-card__eyebrow {
+  color: #5eead4;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.exercise-card h2 {
+  margin: 0.55rem 0 0;
+  font-size: 1.45rem;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid rgba(94, 234, 212, 0.45);
+  outline-offset: 2px;
+}
+
+@media (max-width: 760px) {
   .app-shell {
-    grid-template-columns: 1fr;
-    justify-items: center;
     padding: 3rem 0;
   }
 
-  .page-heading {
-    text-align: center;
-  }
-
-  .page-heading h1,
-  .page-heading p {
-    margin-inline: auto;
+  .exercise-grid {
+    grid-template-columns: 1fr;
   }
 }
