@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 import Counter from './components/Counter'
 import TodoList from './components/TodoList'
@@ -8,20 +9,27 @@ const starterTodos = [
 ]
 
 function App() {
+  const [todoFilter, setTodoFilter] = useState('all')
+
   return (
     <main className="app-shell">
       <header className="page-heading">
-        <span>React Training · Day 2</span>
-        <h1>Components that respond to you.</h1>
+        <span>React Training · Day 3</span>
+        <h1>Lists with a clear source of truth.</h1>
         <p>
-          Two small exercises exploring local state, event handling, conditional
-          rendering, and component composition.
+          Rendering stable lists, deriving filtered views, and lifting shared
+          state to the component that coordinates it.
         </p>
       </header>
 
-      <section className="exercise-grid" aria-label="Day 2 exercises">
+      <section className="exercise-grid" aria-label="Day 3 exercises">
         <Counter initialValue={0} />
-        <TodoList title="Today’s practice" initialTodos={starterTodos} />
+        <TodoList
+          title="Today’s practice"
+          initialTodos={starterTodos}
+          filter={todoFilter}
+          onFilterChange={setTodoFilter}
+        />
       </section>
     </main>
   )

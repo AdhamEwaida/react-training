@@ -1,15 +1,35 @@
 import { useState } from 'react'
+import Button from './Button'
 import TodoItem from './TodoItem'
 import './TodoList.css'
 
-function TodoList({ title = 'My tasks', initialTodos = [] }) {
+const filters = [
+  { value: 'all', label: 'All' },
+  { value: 'active', label: 'Active' },
+  { value: 'completed', label: 'Completed' },
+]
+
+function TodoList({
+  title = 'My tasks',
+  initialTodos = [],
+  filter = 'all',
+  onFilterChange = () => {},
+}) {
   const [todos, setTodos] = useState(initialTodos)
   const [newTodo, setNewTodo] = useState('')
 
   const completedCount = todos.filter((todo) => todo.completed).length
+  const filteredTodos = todos.filter((todo) => {
+    if (filter === 'active') return !todo.completed
+    if (filter === 'completed') return todo.completed
+    return true
+  })
   const completionPercent = todos.length
     ? Math.round((completedCount / todos.length) * 100)
     : 0
+  const emptyMessage = todos.length
+    ? `No ${filter} tasks.`
+    : 'No tasks yet. Add your first one.'
 
   function handleSubmit(event) {
     event.preventDefault()
@@ -63,12 +83,30 @@ function TodoList({ title = 'My tasks', initialTodos = [] }) {
           onChange={(event) => setNewTodo(event.target.value)}
           placeholder="Add a task…"
         />
-        <button type="submit">Add</button>
+        <Button type="submit">Add</Button>
       </form>
 
-      {todos.length ? (
+      <div
+        className="todo-list__filters"
+        role="group"
+        aria-label="Filter tasks"
+      >
+        {filters.map(({ value, label }) => (
+          <Button
+            key={value}
+            type="button"
+            variant="secondary"
+            aria-pressed={filter === value}
+            onClick={() => onFilterChange(value)}
+          >
+            {label}
+          </Button>
+        ))}
+      </div>
+
+      {filteredTodos.length ? (
         <ul className="todo-list__items">
-          {todos.map((todo) => (
+          {filteredTodos.map((todo) => (
             <TodoItem
               key={todo.id}
               todo={todo}
@@ -78,7 +116,7 @@ function TodoList({ title = 'My tasks', initialTodos = [] }) {
           ))}
         </ul>
       ) : (
-        <p className="todo-list__empty">No tasks yet. Add your first one.</p>
+        <p className="todo-list__empty">{emptyMessage}</p>
       )}
     </article>
   )

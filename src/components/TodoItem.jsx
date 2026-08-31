@@ -1,3 +1,5 @@
+import Button from './Button'
+
 function TodoItem({ todo, onToggle, onDelete }) {
   return (
     <li className={`todo-item${todo.completed ? ' todo-item--completed' : ''}`}>
@@ -10,14 +12,15 @@ function TodoItem({ todo, onToggle, onDelete }) {
         <span>{todo.text}</span>
       </label>
 
-      <button
+      <Button
         type="button"
+        variant="secondary"
         className="todo-item__delete"
         onClick={() => onDelete(todo.id)}
         aria-label={`Delete ${todo.text}`}
       >
         Delete
-      </button>
+      </Button>
     </li>
   )
 }

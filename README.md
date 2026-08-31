@@ -20,6 +20,15 @@ Practical React exercises built during the frontend stage of my training.
 - Practiced state updates, events, conditional rendering, and inline styles.
 - Added component tests with Vitest and React Testing Library.
 
+### Day 3 — Lists, Keys, and Derived State
+
+- Added All, Active, and Completed filters to the to-do list.
+- Derived the visible list from the original to-do state instead of duplicating state.
+- Lifted filter state into the parent `App` component.
+- Continued using stable todo IDs as React list keys.
+- Added a reusable `Button` component with primary and secondary variants.
+- Extended component tests to cover filtered views and lifted state updates.
+
 ## Run locally
 
 ```powershell
