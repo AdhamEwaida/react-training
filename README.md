@@ -29,6 +29,15 @@ Practical React exercises built during the frontend stage of my training.
 - Added a reusable `Button` component with primary and secondary variants.
 - Extended component tests to cover filtered views and lifted state updates.
 
+### Day 4 — Forms and Controlled Components
+
+- Built a controlled student registration form for name, email, course, and GPA.
+- Used one change handler to update multiple form fields by name.
+- Added required-field, email-format, and GPA-range validation.
+- Displayed a student preview card after a valid submission.
+- Added success and validation feedback with React Toastify.
+- Added component tests for validation, controlled inputs, and submission.
+
 ## Run locally
 
 ```powershell

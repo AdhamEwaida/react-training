@@ -67,8 +67,13 @@
   font-size: 1.45rem;
 }
 
+.form-workspace {
+  width: min(100%, 58rem);
+}
+
 button,
-input {
+input,
+select {
   font: inherit;
 }
 
@@ -77,7 +82,8 @@ button {
 }
 
 button:focus-visible,
-input:focus-visible {
+input:focus-visible,
+select:focus-visible {
   outline: 3px solid rgba(94, 234, 212, 0.45);
   outline-offset: 2px;
 }

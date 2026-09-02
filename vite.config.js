@@ -7,7 +7,7 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     maxWorkers: 1,
-    pool: 'forks',
+    pool: 'threads',
     setupFiles: './src/test/setup.js',
   },
 })

@@ -1,0 +1,107 @@
+.registration-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.85fr);
+  align-items: start;
+  gap: 1.5rem;
+}
+
+.registration-form {
+  padding-bottom: 1.5rem;
+}
+
+.registration-form__fields {
+  display: grid;
+  gap: 1.1rem;
+  padding: 1.5rem;
+}
+
+.registration-form__field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.registration-form label {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.registration-form input,
+.registration-form select {
+  width: 100%;
+  min-height: 2.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.8rem;
+  padding: 0 0.9rem;
+  color: #f8fafc;
+  background: #0b1220;
+  font: inherit;
+}
+
+.registration-form input[aria-invalid='true'],
+.registration-form select[aria-invalid='true'] {
+  border-color: #fb7185;
+}
+
+.registration-form small {
+  color: #fda4af;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.registration-form .button {
+  justify-self: start;
+}
+
+.student-preview {
+  border: 1px solid rgba(94, 234, 212, 0.25);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(
+    145deg,
+    rgba(13, 148, 136, 0.16),
+    rgba(37, 99, 235, 0.12)
+  );
+}
+
+.student-preview h3 {
+  margin: 0.7rem 0 1.5rem;
+  font-size: 1.65rem;
+}
+
+.student-preview dl {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+}
+
+.student-preview dl div {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.student-preview dt {
+  color: #64748b;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.student-preview dd {
+  margin: 0;
+  color: #e2e8f0;
+  overflow-wrap: anywhere;
+}
+
+.student-preview--empty p {
+  margin: 0.75rem 0 0;
+  color: #94a3b8;
+  line-height: 1.65;
+}
+
+@media (max-width: 720px) {
+  .registration-layout {
+    grid-template-columns: 1fr;
+  }
+}
