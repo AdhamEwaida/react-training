@@ -38,6 +38,15 @@ Practical React exercises built during the frontend stage of my training.
 - Added success and validation feedback with React Toastify.
 - Added component tests for validation, controlled inputs, and submission.
 
+### Day 5 — useEffect, Side Effects, and Lifecycle
+
+- Built a Random User Fetcher backed by the Random User API.
+- Used `useEffect` to load a profile on mount and after each user request.
+- Added clear loading, success, and recoverable error states.
+- Cancelled in-flight requests with `AbortController` during effect cleanup.
+- Added a responsive profile card and a `Next user` action.
+- Added component tests for loading, successful responses, retries, and refetching.
+
 ## Run locally
 
 ```powershell

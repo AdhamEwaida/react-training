@@ -67,7 +67,8 @@
   font-size: 1.45rem;
 }
 
-.form-workspace {
+.form-workspace,
+.fetcher-workspace {
   width: min(100%, 58rem);
 }
 

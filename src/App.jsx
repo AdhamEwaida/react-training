@@ -1,30 +1,21 @@
-import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 import './App.css'
-import StudentRegistrationForm from './components/StudentRegistrationForm'
+import RandomUserFetcher from './components/RandomUserFetcher'
 
 function App() {
   return (
     <main className="app-shell">
       <header className="page-heading">
-        <span>React Training · Day 4</span>
-        <h1>Forms that guide the user.</h1>
+        <span>React Training · Day 5</span>
+        <h1>Effects that handle the real world.</h1>
         <p>
-          Controlled inputs, one change handler, clear validation, and a live
-          student preview after a successful submission.
+          Fetch remote data, communicate every request state, and clean up
+          in-flight work when the component lifecycle changes.
         </p>
       </header>
 
-      <section className="form-workspace" aria-label="Day 4 exercise">
-        <StudentRegistrationForm />
+      <section className="fetcher-workspace" aria-label="Day 5 exercise">
+        <RandomUserFetcher />
       </section>
-
-      <ToastContainer
-        position="bottom-right"
-        autoClose={3000}
-        theme="dark"
-        newestOnTop
-      />
     </main>
   )
 }
