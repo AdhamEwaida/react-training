@@ -47,6 +47,16 @@ Practical React exercises built during the frontend stage of my training.
 - Added a responsive profile card and a `Next user` action.
 - Added component tests for loading, successful responses, retries, and refetching.
 
+### Day 6 — Project Integration
+
+- Built Student Dashboard v1 from the registration and student display exercises.
+- Lifted student state into a page component so the form and list stay in sync.
+- Added a reusable student list and an accessible student-details modal.
+- Persisted student records between visits with a custom `useLocalStorage` hook.
+- Organized the feature into `components`, `hooks`, and `pages` folders.
+- Used a CSS Module for page-scoped dashboard styling.
+- Added integration tests for registration, persistence, and the details flow.
+
 ## Run locally
 
 ```powershell

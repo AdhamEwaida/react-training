@@ -5,6 +5,10 @@
   gap: 1.5rem;
 }
 
+.registration-layout--single {
+  grid-template-columns: 1fr;
+}
+
 .registration-form {
   padding-bottom: 1.5rem;
 }

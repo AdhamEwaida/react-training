@@ -1,21 +1,22 @@
 import './App.css'
-import RandomUserFetcher from './components/RandomUserFetcher'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import StudentDashboard from './pages/StudentDashboard'
 
 function App() {
   return (
     <main className="app-shell">
       <header className="page-heading">
-        <span>React Training · Day 5</span>
-        <h1>Effects that handle the real world.</h1>
+        <span>React Training · Day 6</span>
+        <h1>One connected student workspace.</h1>
         <p>
-          Fetch remote data, communicate every request state, and clean up
-          in-flight work when the component lifecycle changes.
+          Register students, keep data in sync across components, inspect
+          details, and preserve every record between visits.
         </p>
       </header>
 
-      <section className="fetcher-workspace" aria-label="Day 5 exercise">
-        <RandomUserFetcher />
-      </section>
+      <StudentDashboard />
+      <ToastContainer position="bottom-right" theme="dark" />
     </main>
   )
 }

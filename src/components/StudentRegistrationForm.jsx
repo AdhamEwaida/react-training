@@ -40,7 +40,11 @@ function validateStudent(form) {
   return errors
 }
 
-function StudentRegistrationForm() {
+function StudentRegistrationForm({
+  onRegister,
+  resetAfterSubmit = false,
+  showPreview = true,
+}) {
   const [form, setForm] = useState(initialForm)
   const [errors, setErrors] = useState({})
   const [student, setStudent] = useState(null)
@@ -62,18 +66,28 @@ function StudentRegistrationForm() {
       return
     }
 
-    setErrors({})
-    setStudent({
+    const registeredStudent = {
       name: form.name.trim(),
       email: form.email.trim(),
       course: form.course,
       gpa: Number(form.gpa),
-    })
+    }
+
+    setErrors({})
+    setStudent(registeredStudent)
+    onRegister?.(registeredStudent)
+
+    if (resetAfterSubmit) {
+      setForm(initialForm)
+    }
+
     toast.success('Student registered successfully.')
   }
 
   return (
-    <div className="registration-layout">
+    <div
+      className={`registration-layout ${showPreview ? '' : 'registration-layout--single'}`}
+    >
       <form
         className="exercise-card registration-form"
         onSubmit={handleSubmit}
@@ -155,14 +169,15 @@ function StudentRegistrationForm() {
         </div>
       </form>
 
-      {student ? (
-        <StudentPreviewCard student={student} />
-      ) : (
-        <aside className="student-preview student-preview--empty">
-          <span className="exercise-card__eyebrow">Registration preview</span>
-          <p>Complete the form to preview the student record.</p>
-        </aside>
-      )}
+      {showPreview &&
+        (student ? (
+          <StudentPreviewCard student={student} />
+        ) : (
+          <aside className="student-preview student-preview--empty">
+            <span className="exercise-card__eyebrow">Registration preview</span>
+            <p>Complete the form to preview the student record.</p>
+          </aside>
+        ))}
     </div>
   )
 }

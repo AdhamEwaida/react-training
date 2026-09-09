@@ -68,7 +68,8 @@
 }
 
 .form-workspace,
-.fetcher-workspace {
+.fetcher-workspace,
+.dashboard-workspace {
   width: min(100%, 58rem);
 }
 
