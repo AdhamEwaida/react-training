@@ -35,6 +35,41 @@
   font-size: 0.85rem;
 }
 
+.directoryTools {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(14rem, 0.45fr);
+  gap: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.5rem;
+  padding: 1.25rem;
+  background: rgba(13, 20, 34, 0.82);
+}
+
+.searchField,
+.filterField {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.searchField label,
+.filterField label {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.searchField input,
+.filterField select {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0.85rem;
+  padding: 0.8rem 0.9rem;
+  color: #e2e8f0;
+  background: #0b1220;
+}
+
 :global(.student-list) {
   overflow: hidden;
 }
@@ -100,6 +135,30 @@
   padding: 0.45rem 0.85rem;
   color: #5eead4;
   background: transparent;
+}
+
+:global(.student-list__actions) {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.55rem;
+}
+
+:global(.student-list__delete) {
+  border: 1px solid rgba(251, 113, 133, 0.4);
+  border-radius: 999px;
+  padding: 0.45rem 0.85rem;
+  color: #fda4af;
+  background: transparent;
+}
+
+:global(.student-list__view:hover),
+:global(.student-list__view:focus-visible) {
+  background: rgba(94, 234, 212, 0.1);
+}
+
+:global(.student-list__delete:hover),
+:global(.student-list__delete:focus-visible) {
+  background: rgba(251, 113, 133, 0.1);
 }
 
 :global(.student-list-empty) {
@@ -187,8 +246,63 @@
 }
 
 @media (max-width: 620px) {
-  :global(.student-list th),
+  .directoryTools {
+    grid-template-columns: 1fr;
+  }
+
+  :global(.student-list__table-wrap) {
+    overflow: visible;
+  }
+
+  :global(.student-list thead) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  :global(.student-list tbody),
+  :global(.student-list tr),
   :global(.student-list td) {
-    padding: 0.85rem 1rem;
+    display: block;
+  }
+
+  :global(.student-list tbody) {
+    padding: 0 1rem 1rem;
+  }
+
+  :global(.student-list tr) {
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 1rem;
+    padding: 0.35rem 0;
+  }
+
+  :global(.student-list tr + tr) {
+    margin-top: 0.75rem;
+  }
+
+  :global(.student-list td) {
+    display: grid;
+    grid-template-columns: minmax(5rem, 0.35fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 0.75rem;
+    border-top: 0;
+    padding: 0.65rem 0.85rem;
+    text-align: right;
+  }
+
+  :global(.student-list td::before) {
+    content: attr(data-label);
+    color: #64748b;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  :global(.student-list__actions) {
+    flex-wrap: wrap;
   }
 }

@@ -57,6 +57,15 @@ Practical React exercises built during the frontend stage of my training.
 - Used a CSS Module for page-scoped dashboard styling.
 - Added integration tests for registration, persistence, and the details flow.
 
+### Day 7 — Review and Mini Project
+
+- Completed the frontend-only Student Dashboard mini project.
+- Added case-insensitive student search and course filtering.
+- Added student deletion with immediate `localStorage` persistence.
+- Kept the directory count and empty-result feedback in sync with filters.
+- Converted the student table into a card-style layout on small screens.
+- Extended integration tests for search, filtering, deletion, and empty results.
+
 ## Run locally
 
 ```powershell

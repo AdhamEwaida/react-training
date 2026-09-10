@@ -1,10 +1,21 @@
-function StudentList({ students, onViewStudent }) {
+function StudentList({
+  students,
+  totalStudents = students.length,
+  onViewStudent,
+  onDeleteStudent,
+}) {
   if (!students.length) {
+    const hasSavedStudents = totalStudents > 0
+
     return (
       <div className="exercise-card student-list-empty">
         <span className="exercise-card__eyebrow">Student directory</span>
-        <h2>No students yet</h2>
-        <p>Use the registration form to create the first student record.</p>
+        <h2>{hasSavedStudents ? 'No matching students' : 'No students yet'}</h2>
+        <p>
+          {hasSavedStudents
+            ? 'Try a different name or course filter.'
+            : 'Use the registration form to create the first student record.'}
+        </p>
       </div>
     )
   }
@@ -19,7 +30,7 @@ function StudentList({ students, onViewStudent }) {
           <span className="exercise-card__eyebrow">Student directory</span>
           <h2 id="students-title">Registered students</h2>
         </div>
-        <strong>{students.length}</strong>
+        <strong aria-label="Visible student count">{students.length}</strong>
       </header>
 
       <div className="student-list__table-wrap">
@@ -37,21 +48,31 @@ function StudentList({ students, onViewStudent }) {
           <tbody>
             {students.map((student) => (
               <tr key={student.id}>
-                <td>
+                <td data-label="Student">
                   <strong>{student.name}</strong>
                   <small>{student.email}</small>
                 </td>
-                <td>{student.course}</td>
-                <td>{student.gpa.toFixed(2)}</td>
-                <td>
-                  <button
-                    className="student-list__view"
-                    type="button"
-                    onClick={() => onViewStudent(student)}
-                    aria-label={`View ${student.name}`}
-                  >
-                    View
-                  </button>
+                <td data-label="Course">{student.course}</td>
+                <td data-label="GPA">{student.gpa.toFixed(2)}</td>
+                <td data-label="Actions">
+                  <div className="student-list__actions">
+                    <button
+                      className="student-list__view"
+                      type="button"
+                      onClick={() => onViewStudent(student)}
+                      aria-label={`View ${student.name}`}
+                    >
+                      View
+                    </button>
+                    <button
+                      className="student-list__delete"
+                      type="button"
+                      onClick={() => onDeleteStudent(student.id)}
+                      aria-label={`Delete ${student.name}`}
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}

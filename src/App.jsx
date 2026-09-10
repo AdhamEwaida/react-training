@@ -7,11 +7,11 @@ function App() {
   return (
     <main className="app-shell">
       <header className="page-heading">
-        <span>React Training · Day 6</span>
-        <h1>One connected student workspace.</h1>
+        <span>React Training · Day 7</span>
+        <h1>A complete student dashboard.</h1>
         <p>
-          Register students, keep data in sync across components, inspect
-          details, and preserve every record between visits.
+          Register students, search and filter the directory, inspect details,
+          and keep every change in sync between visits.
         </p>
       </header>
 
